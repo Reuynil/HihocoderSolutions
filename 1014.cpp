@@ -5,13 +5,20 @@
 
 using namespace std;
 
+struct node
+{
+	char ch;
+	int num;
+	list<node*> next;
+};
+
 class tree
 {
 public:
 
 	void add(string str)
 	{
-		int len = str.length;
+		int len = str.length();
 		for (int i = 0; i < len; i++)
 		{
 			list<node*>::iterator ite = root.next.begin();
@@ -45,27 +52,10 @@ private:
 	node root;
 };
 
-struct node
-{
-	char ch;
-	int num;
-	list<node*> next;
-};
-
-class my
-{
-public:
-	int a;
-	int b;
-};
 
 int main()
 {
-	string str = "mystring";
-	char ch = 's';
-	if (str.at(2) == ch)
-	{
-		cout << "hello world" << endl;
-	}
+	int num;
+	cin >> num;
 	return 0;
 }
