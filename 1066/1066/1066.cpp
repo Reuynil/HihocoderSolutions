@@ -1,136 +1,79 @@
+// I have try using list provided by STL instead of array, but got a TLE.
+
 #include<iostream>
 #include<string>
-#include<list>
-#include<algorithm>
+
+#define MAX 10000
 
 using namespace std;
 
-class person
-{
-public:
-	person(string n, string s)
-	{
-		name = n;
-		superior = s;
-	}
-	string getName()
-	{
-		return name;
-	}
-	string getSuperior()
-	{
-		return superior;
-	}
-	void setName(string n)
-	{
-		name = n;
-	}
-	void setSuperior(string s)
-	{
-		superior = s;
-	}
-private:
-	string name;
-	string superior;
-};
+string person[MAX];
+int represent[MAX];
+int num = 0;
 
-class findByName
+int findByName(string name)
 {
-public:
-	findByName(string str)
-	{
-		test = str;
-	}
-	bool operator()(person& p)
-	{
-		if (p.getName().compare(test) == 0)
-			return true;
-		else
-			return false;
-	}
-private:
-	string test;
-};
-
-list<person> v;
-
-void meger(string name1, string name2)
-{
-	list<person>::iterator ite1 = find_if(v.begin(), v.end(), findByName(name1));
-	list<person>::iterator ite1_ = ite1;
-	list<person>::iterator ite2 = find_if(v.begin(), v.end(), findByName(name2));
-	list<person>::iterator ite2_ = ite2;
-	if (ite1!=v.end()&&ite2!=v.end())
-	{
-		while (ite1->getName() != ite1->getSuperior())
-		{
-			ite1 = find_if(v.begin(), v.end(), findByName(ite1->getSuperior()));
-		}
-		ite1_->setSuperior(ite1->getName());
-		while (ite2->getName() != ite2->getSuperior())
-		{
-			ite2 = find_if(v.begin(), v.end(), findByName(ite2->getSuperior()));
-		}
-		ite2_->setSuperior(ite1->getName());
-		ite2->setSuperior(ite1->getName());
-	}
-	else if (ite1 != v.end() && ite2 == v.end())
-	{
-		while (ite1->getSuperior()!=ite1->getName())
-		{
-			ite1 = find_if(v.begin(), v.end(), findByName(ite1->getSuperior()));
-		}
-		ite1_->setSuperior(ite1->getName());
-		person p(name2, ite1->getName());
-		v.push_back(p);
-	}
-	else if (ite1==v.end()&&ite2!=v.end())
-	{
-		while (ite2->getSuperior() != ite2->getName())
-		{
-			ite2 = find_if(v.begin(), v.end(), findByName(ite2->getSuperior()));
-		}
-		ite2_->setSuperior(ite2->getName());
-		person p(name1, ite2->getName());
-		v.push_back(p);
-	}
-	else
-	{
-		person p1(name1, name1);
-		v.push_back(p1);
-		person p2(name2, name1);
-		v.push_back(p2);
-	}
+	if (num == 0)
+		return -1;
+	for (int i = 0; i < num;i++)
+		if (person[i] == name)
+			return i;
+	return -1;//return -1 if not found.
 }
 
-int judge(string name1,string name2)
+int findRepresent(int x)
 {
-	list<person>::iterator ite1 = find_if(v.begin(), v.end(), findByName(name1));
-	list<person>::iterator ite1_ = ite1;
-	list<person>::iterator ite2 = find_if(v.begin(), v.end(), findByName(name2));
-	list<person>::iterator ite2_ = ite2;
-	if (ite1==v.end()||ite2==v.end())
+	if (represent[x] == x)
 	{
-		return -1;
-	}
-	while (ite1->getName()!=ite1->getSuperior())
-	{
-		ite1 = find_if(v.begin(), v.end(), findByName(ite1->getSuperior()));
-	}
-	ite1_->setSuperior(ite1->getName());
-	while (ite2->getName()!=ite2->getSuperior())
-	{
-		ite2 = find_if(v.begin(), v.end(), findByName(ite2->getSuperior()));
-	}
-	ite2_->setSuperior(ite2->getName());
-	if (ite1->getName()==ite2->getName())
-	{
-		return 1;
+		return x;
 	}
 	else
 	{
-		return -1;
+		int p = findRepresent(represent[x]);
+		represent[x] = p;
+		return p;
+	} 
+}
+
+void add(string name1, string name2)
+{
+	// detemines whether the person is exist. If not, add; otherwise, find his represent.
+	int iter1 = findByName(name1);
+	if (iter1 == -1)
+	{
+		person[num] = name1;
+		represent[num] = num;
+		iter1 = num;
+		num++;
 	}
+	else
+	{
+		iter1 = findRepresent(iter1);
+	}
+	int iter2 = findByName(name2);
+	if (iter2 == -1)
+	{
+		person[num] = name2;
+		represent[num] = num;
+		iter2 = num;
+		num++;
+	}
+	else
+	{
+		iter2 = findRepresent(iter2);
+	}
+	represent[iter1] = iter2;
+}
+
+bool judge(string name1,string name2)
+{
+	int iter1 = findByName(name1);
+	int iter2 = findByName(name2);
+	if (iter1==-1||iter2==-1)
+		return false;
+	if (findRepresent(iter1) == findRepresent(iter2))
+		return true;
+	return false;
 }
 
 int main()
@@ -144,11 +87,11 @@ int main()
 		cin >> op >> name1 >> name2;
 		if (op == 0)
 		{
-			meger(name1, name2);
+			add(name1, name2);
 		}
 		else
 		{
-			if (judge(name1, name2) == 1)
+			if (judge(name1, name2))
 			{
 				cout << "yes" << endl;
 			}

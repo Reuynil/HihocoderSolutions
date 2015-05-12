@@ -68,16 +68,6 @@ int getAncestor(string first,string second)
         secondPerson = temp2[num2];
         num2++;
     }
-    //
-    //for (int i = 0; i < num1; i++)
-    //{
-    //	cout << p[temp1[i]].name << endl;
-    //}
-    //for (int i = 0; i < num2; i++)
-    //{
-    //	cout << p[temp2[i]].name << endl;
-    //}
-    //
     while (temp1[num1]==temp2[num2] && num1>-1 && num2>-1)
     {
         num1--;
