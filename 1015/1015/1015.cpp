@@ -1,19 +1,21 @@
 #include<iostream>
 #include<string>
 
+#define MAX 10005
+
 using namespace std;
 
-void compute_next(string patern,int next[], int len)
+void compute_next(const string& patern, int next[])
 {
 	int i = 0, j = -1;
 	next[0] = -1;
-	while (i<len)
+	while (i<patern.length())
 	{
 		if (j == -1 || patern[i] == patern[j])
 		{
 			j++;
 			i++;
-			next[j] = i;
+			next[i] = j;
 		}
 		else
 		{
@@ -23,11 +25,28 @@ void compute_next(string patern,int next[], int len)
 
 }
 
-bool KMP(string p, string t, int next[])
+int KMP(const string& p, const string& t, int next[])
 {
 	int pl = p.length();
 	int tl = t.length();
-	return false;
+	int res = 0, j = 0;
+	for (int i = 0; i < tl; i++)
+	{
+		while (j>0 && t[i] != p[j])
+		{
+			j = next[j];
+		}
+		if (j == -1 || t[i] == p[j])
+		{
+			j++;
+		}
+		if (j == pl)
+		{
+			j = next[j];
+			res++;
+		}
+	}
+	return res;
 }
 
 int main()
@@ -38,14 +57,9 @@ int main()
 	{
 		string patern, target;
 		cin >> patern >> target;
-		int len = patern.length();
-		int* next = new int[len];
-		compute_next(patern, next, len);
-		for (int i = 0; i < len; i++)
-		{
-			cout << next[i] << endl;
-		}
-		//delete[] next;
+		int next[MAX];
+		compute_next(patern, next);
+		cout << KMP(patern, target, next) << endl;
 	}
 	return 0;
 }
