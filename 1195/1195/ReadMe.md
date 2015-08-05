@@ -1,11 +1,12 @@
 ﻿hihocoder提供的伪代码是有问题的。例如如下数据：
 
-2 2
+>>2 2
 0 0 0
 0 0 1
 
 应该是无解，但按照伪代码提供的算法，是有无穷多个解。1195.cpp.bak的代码解决了这个问题。
 
+```
 // 处理出上三角矩阵
 For i = 1..N
     Flag ← False
@@ -33,3 +34,4 @@ For i = 1..M
         return "No solutions"
     End If
 End For
+```
