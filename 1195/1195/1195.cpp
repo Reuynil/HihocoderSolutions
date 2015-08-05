@@ -1,72 +1,106 @@
 #include <iostream>
-#include <string>
-
-#define COFFICIENT matrix[i][i] / matrix[j][i]
 
 using namespace std;
 
-int matrix[1000][501];
-int price[501];
+double matrix[1000][500];
+double value[500];
 int n, m;	// n means column and m means row.
 
-void triangleMatrix()
+//return 0: no solution
+//return 1: one solution
+//return 2: many solutions
+int solution()
 {
-	for (int i = 0;i < m; i++)
+	// 处理出上三角矩阵
+	for (int i = 0;i < n;i++)
 	{
-		for (int j = i + 1;j < m;j++)
+		int j = 0;
+		if (matrix[i][i] == 0)
 		{
-			if (matrix[j][i] == 0)
-				continue;
-			for (int k = 0;k < n;k++)
+			for (j = i + 1;j < m;j++)
 			{
-				matrix[j][k] = matrix[j][k] * COFFICIENT - matrix[i][k];
+				if (matrix[j][i] != 0)
+				{
+					for (int k = 0;k <= n;k++)
+					{
+						double temp = 0;
+						temp = matrix[i][k];
+						matrix[i][k] = matrix[j][k];
+						matrix[j][k] = temp;
+					}
+				}
+				break;
+			}
+		}
+		// 多解的情况
+		if (j == m)
+			return 2;
+		// 消除第i+1行到第M行的第i列
+		for (j = i + 1;j < m;j++)
+		{
+			double cofficient = matrix[j][i] / matrix[i][i];
+			for (int k = 0;k < n + 1;k++)
+			{
+				matrix[j][k] = matrix[j][k] - matrix[i][k] * cofficient;
 			}
 		}
 	}
-}
-
-string judge(int& r)
-{
-	string reslut;
-	int i = m - 1;
-	for (;i >= 0;i--)
+	// 检查是否无解，即存在 0 = x 的情况
+	for (int i = 0;i < m;i++)
 	{
 		int j = 0;
-		for (;j < n && matrix[i][j] == 0;j++);
-		if (j == n - 1)
+		for (;j < n;j++)
 		{
-			if (matrix[i][j] != matrix[i][j])
-				return "NoSolution";
+			if (matrix[i][j] != 0)
+			{
+				break;	// 有非零值就退出
+			}
 		}
-		if (j > n - 1)
+		if (j == n&&matrix[i][n] != 0)
 		{
-			return "ManySolutions";
+			return 0;	// 出现 0 = x 的情况
 		}
 	}
-	r = i;
-	return "OneSolution";
-}
-
-void solution(const int& r)
-{
-	int i = r;
-	for (;i >= 0;i--)
+	
+	for (int i = n - 1;i >= 0;i--)
 	{
-
+		for (int j = i + 1;j < n;j++)
+		{
+			matrix[i][n] = matrix[i][n] - matrix[i][j] * value[j];
+			matrix[i][j] = 0;
+		}
+		value[i] = matrix[i][n] / matrix[i][i];
 	}
+
+	return 1;
 }
 
 int main()
 {
-	
+
 	cin >> n >> m;
 	for (int i = 0; i < m; ++i)
 	{
-		for (int j = 0; j < n+1; ++j)
+		for (int j = 0; j < n + 1; ++j)
 		{
 			cin >> matrix[i][j];
 		}
 	}
-
-		return 0;
+	int res = solution();
+	if (res == 0)
+	{
+		cout << "No solutions" << endl;
+	}
+	else if (res == 2)
+	{
+		cout << "Many solutions" << endl;
+	}
+	else 
+	{
+		for (int i = 0;i < n;i++)
+		{
+			cout << (int)(value[i] + 0.5) << endl;
+		}
+	}
+	return 0;
 }
