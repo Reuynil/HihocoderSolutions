@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int n, m;	// n means column and m means row.
 //return 2: many solutions
 int solution()
 {
-	// ´¦Àí³öÉÏÈı½Ç¾ØÕó
+	// å¤„ç†å‡ºä¸Šä¸‰è§’çŸ©é˜µ
 	for (int i = 0;i < n;i++)
 	{
 		int j = 0;
@@ -32,10 +32,10 @@ int solution()
 				break;
 			}
 		}
-		// ¶à½âµÄÇé¿ö
+		// å¤šè§£çš„æƒ…å†µ
 		if (j == m)
 			return 2;
-		// Ïû³ıµÚi+1ĞĞµ½µÚMĞĞµÄµÚiÁĞ
+		// æ¶ˆé™¤ç¬¬i+1è¡Œåˆ°ç¬¬Mè¡Œçš„ç¬¬iåˆ—
 		for (j = i + 1;j < m;j++)
 		{
 			double cofficient = matrix[j][i] / matrix[i][i];
@@ -45,7 +45,7 @@ int solution()
 			}
 		}
 	}
-	// ¼ì²éÊÇ·ñÎŞ½â£¬¼´´æÔÚ 0 = x µÄÇé¿ö
+	// æ£€æŸ¥æ˜¯å¦æ— è§£ï¼Œå³å­˜åœ¨ 0 = x çš„æƒ…å†µ
 	for (int i = 0;i < m;i++)
 	{
 		int j = 0;
@@ -53,12 +53,12 @@ int solution()
 		{
 			if (matrix[i][j] != 0)
 			{
-				break;	// ÓĞ·ÇÁãÖµ¾ÍÍË³ö
+				break;	// æœ‰éé›¶å€¼å°±é€€å‡º
 			}
 		}
 		if (j == n&&matrix[i][n] != 0)
 		{
-			return 0;	// ³öÏÖ 0 = x µÄÇé¿ö
+			return 0;	// å‡ºç° 0 = x çš„æƒ…å†µ
 		}
 	}
 	
