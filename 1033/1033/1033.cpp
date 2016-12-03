@@ -3,6 +3,8 @@
 
 using namespace std;
 
+long modulo = pow(10, 9) + 7;
+
 //Return the digit of the given number.
 int digit(long num)
 {
@@ -23,7 +25,7 @@ int digit(long num)
 }
 
 //True means even, and false means odd.
-int parity(long num)
+bool parity(long num)
 {
 	if(num %2 == 0)
 		return true;
@@ -60,16 +62,15 @@ int cas(long num)
 	return res;
 }
 
-int sum(int begin, int end, int find)
+int sum(long begin, long end, int find)
 {
 	int digit_begin = digit(begin);
 	int digit_end = digit(end);
 	int ss, ss_temp;
 	long match = 0;
-	for(int i = digit_begin; i <= digit_begin; i++)
+	for(int i = digit_begin; i <= digit_end; i++)
 	{
-		int ss_temp;
-		int j = pow(10, i - 1);
+		long j = pow(10, i - 1);
 		if(begin > j)
 		{
 			j = begin;
@@ -78,35 +79,62 @@ int sum(int begin, int end, int find)
 		else
 		{
 			ss_temp = 1;
-		}
-		while(j < pow(10, i))
+		}/*
+		if (ss_temp == find)
 		{
-			if(parity(j))
+			match = (match + j) % modulo;
+			cout << j << endl;	//
+		}*/
+
+		//check
+		if (ss_temp != cas(j))
+		{
+			cout << "j:\t" << j << "\n"
+				<< "ss_temp:\t" << ss_temp << "\n"
+				<< "cas(j):\t" << cas(j) << endl;
+			return -1;
+		}
+
+		j++;
+		while(j < pow(10, i) && j <= end)
+		{
+			if(parity(i))
 			{
 				if(j % 10 == 0)
 				{
-				//	ss = 
-				}
-				else
-				{
-					ss = ss_temp + 1;
-				}
-			}
-			else
-			{	if(j % 10 == 0)
-				{
-				//	ss = 
+					ss = ss_temp + 10;
 				}
 				else
 				{
 					ss = ss_temp - 1;
 				}
 			}
-			ss_temp = ss;
+			else
+			{	if(j % 10 == 0)
+				{
+					ss = ss_temp - 10;
+				}
+				else
+				{
+					ss = ss_temp + 1;
+				}
+			}
+			ss_temp = ss;/*
 			if(ss == find)
 			{
-				match = match + j;
+				match = (match + j) % modulo;
+				cout << j << endl;	//
+			}*/
+
+			//check
+			if (ss_temp != cas(j))
+			{
+				cout << "j:\t" << j << "\n"
+					<< "ss_temp:\t" << ss_temp << "\n"
+					<< "cas(j):\t" << cas(j) << endl;
+				return -1;
 			}
+
 			j++;
 		}
 	}
@@ -116,8 +144,10 @@ int sum(int begin, int end, int find)
 
 int main()
 {
-	//int l,k,r;
-	//cin>>l>>k>>r;
-	cout << cas(321) << endl;
+	long l,k,r;
+	while (cin >> l >> k >> r)
+	{
+		cout << "sum:\t" << sum(l, k, r) << endl;
+	}
 	return 0;
 }
