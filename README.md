@@ -16,3 +16,4 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |题目|代码|
 |---|---|
 |[1174](http://hihocoder.com/problemset/problem/1174)|[拓扑排序-一](https://github.com/Reuynil/HihocoderSolutions/tree/master/1174/1174)|
+|[1175](http://hihocoder.com/problemset/problem/1175)|[拓扑排序-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1175/1175)|
