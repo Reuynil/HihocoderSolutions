@@ -1,6 +1,6 @@
 # hihoCoder题库代码
 
-hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备份。
+hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备份。hihoCoder的题目需要登录才能查看。
 
 ## 题目分类
 ### 网络流
@@ -17,3 +17,8 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |---|---|
 |[1174](http://hihocoder.com/problemset/problem/1174)|[拓扑排序-一](https://github.com/Reuynil/HihocoderSolutions/tree/master/1174/1174)|
 |[1175](http://hihocoder.com/problemset/problem/1175)|[拓扑排序-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1175/1175)|
+
+### 二分
+|题目|代码|
+|---|---|
+|[1128](http://hihocoder.com/problemset/problem/1128)|[二分-二分查找](https://github.com/Reuynil/HihocoderSolutions/tree/master/1128/1128)|
