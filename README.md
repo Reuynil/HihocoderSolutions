@@ -19,7 +19,8 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |[1175](http://hihocoder.com/problemset/problem/1175)|[拓扑排序-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1175/1175)|
 
 ### 二分
-|题目|代码|
-|---|---|
-|[1128](http://hihocoder.com/problemset/problem/1128)|[二分-二分查找](https://github.com/Reuynil/HihocoderSolutions/tree/master/1128/1128)|
-|[1133](http://hihocoder.com/problemset/problem/1133)|[二分-二分查找之k小数](https://github.com/Reuynil/HihocoderSolutions/tree/master/1133/1133)|
+|题目|代码|备注
+|---|---|---|
+|[1128](http://hihocoder.com/problemset/problem/1128)|[二分-二分查找](https://github.com/Reuynil/HihocoderSolutions/tree/master/1128/1128)||
+|[1133](http://hihocoder.com/problemset/problem/1133)|[二分-二分查找之k小数](https://github.com/Reuynil/HihocoderSolutions/tree/master/1133/1133)||
+|[1139](http://hihocoder.com/problemset/problem/1139)|[二分-二分分答案](https://github.com/Reuynil/HihocoderSolutions/tree/master/1139/1139)|题目中的边是双向的。|
