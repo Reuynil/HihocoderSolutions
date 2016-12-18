@@ -24,3 +24,4 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |[1128](http://hihocoder.com/problemset/problem/1128)|[二分-二分查找](https://github.com/Reuynil/HihocoderSolutions/tree/master/1128/1128)||
 |[1133](http://hihocoder.com/problemset/problem/1133)|[二分-二分查找之k小数](https://github.com/Reuynil/HihocoderSolutions/tree/master/1133/1133)||
 |[1139](http://hihocoder.com/problemset/problem/1139)|[二分-二分分答案](https://github.com/Reuynil/HihocoderSolutions/tree/master/1139/1139)|题目中的边是双向的。|
+|[1141](http://hihocoder.com/problemset/problem/1141)|[二分-二归并排序之逆序对](https://github.com/Reuynil/HihocoderSolutions/tree/master/1141/1141)|注意战舰火力值相等的情况。|
