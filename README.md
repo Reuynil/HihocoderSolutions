@@ -25,3 +25,9 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |[1133](http://hihocoder.com/problemset/problem/1133)|[二分-二分查找之k小数](https://github.com/Reuynil/HihocoderSolutions/tree/master/1133/1133)||
 |[1139](http://hihocoder.com/problemset/problem/1139)|[二分-二分分答案](https://github.com/Reuynil/HihocoderSolutions/tree/master/1139/1139)|题目中的边是双向的。|
 |[1141](http://hihocoder.com/problemset/problem/1141)|[二分-二归并排序之逆序对](https://github.com/Reuynil/HihocoderSolutions/tree/master/1141/1141)|注意战舰火力值相等的情况。|
+
+### Nim游戏
+|题目|代码|备注
+|---|---|---|
+|[1163](http://hihocoder.com/problemset/problem/1163)|[Nim游戏-一](https://github.com/Reuynil/HihocoderSolutions/tree/master/1163/1163)||
+|[1172](http://hihocoder.com/problemset/problem/1172)|[Nim游戏-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1172/1172)||
