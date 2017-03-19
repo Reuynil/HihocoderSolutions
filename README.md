@@ -32,3 +32,8 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |[1163](http://hihocoder.com/problemset/problem/1163)|[Nim游戏-一](https://github.com/Reuynil/HihocoderSolutions/tree/master/1163/1163)||
 |[1172](http://hihocoder.com/problemset/problem/1172)|[Nim游戏-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1172/1172)||
 |[1173](http://hihocoder.com/problemset/problem/1173)|[Nim游戏-二](https://github.com/Reuynil/HihocoderSolutions/tree/master/1173/1173)|打表防TLE。|
+
+### 背包
+|题目|代码|备注
+|---|---|---|
+|[1043](http://hihocoder.com/problemset/problem/1043)|[完全背包](https://github.com/Reuynil/HihocoderSolutions/tree/master/1043/1043)||
