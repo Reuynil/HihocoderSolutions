@@ -23,4 +23,5 @@ hihoCoder的[ProblemSet](http://hihocoder.com/problemset/)中通过的代码备�
 |[1014](http://hihocoder.com/problemset/problem/1014)|[Tire树](https://github.com/Reuynil/HihocoderSolutions/tree/master/1014/1014)|字典树||
 |[1015](http://hihocoder.com/problemset/problem/1015)|[KMP算法](https://github.com/Reuynil/HihocoderSolutions/tree/master/1015/1015)|KMP算法||
 |[1032](http://hihocoder.com/problemset/problem/1032)|[最长回文子串](https://github.com/Reuynil/HihocoderSolutions/tree/master/1032/1032)|动态规划||
-|[1105](http://hihocoder.com/problemset/problem/1105)|[题外话·堆](https://github.com/Reuynil/HihocoderSolutions/tree/master/1105/1105)|最大堆|||
+|[1105](http://hihocoder.com/problemset/problem/1105)|[题外话·堆](https://github.com/Reuynil/HihocoderSolutions/tree/master/1105/1105)|最大堆||
+|[1478](http://hihocoder.com/problemset/problem/1478)|[水陆距离](https://github.com/Reuynil/HihocoderSolutions/tree/master/1478/1478)|宽度优先搜索|||
